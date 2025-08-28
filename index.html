@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram</title>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-light px-3">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <i class="bi bi-instagram me-2 fs-4"></i>
+        <span class="fw-bold">Instagram</span>
+      </a>
+      <div class="d-flex align-items-center">
+        <button class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#createPostModal">
+          <i class="bi bi-plus-circle me-1"></i> Create a new post
+        </button>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-gear"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Botones de cuadrícula y lista -->
+  <div class="container text-center my-3">
+    <button id="grid-btn" class="btn btn-outline-dark btn-sm me-2">
+      <i class="bi bi-grid-3x3 fs-5"></i>
+    </button>
+    <button id="list-btn" class="btn btn-outline-dark btn-sm">
+      <i class="bi bi-square fs-5"></i>
+    </button>
+  </div>
+
+  <!-- Cuadrícula 3x3 de imágenes -->
+  <div class="container my-4" id="grid-section">
+    <div class="row g-3">
+      <div class="col-4"><img src="https://picsum.photos/300?random=1" alt="Post 1"></div>
+      <div class="col-4"><img src="https://picsum.photos/300?random=2" alt="Post 2"></div>
+      <div class="col-4"><img src="https://picsum.photos/300?random=3" alt="Post 3"></div>
+      <div class="col-4"><img src="https://picsum.photos/300?random=4" alt="Post 4"></div>
+      <div class="col-4"><img src="https://picsum.photos/300?random=5" alt="Post 5"></div>
+      <div class="col-4"><img src="https://picsum.photos/300?random=6" alt="Post 6"></div>
+      <div class="col-4"><img src="https://picsum.photos/300?random=7" alt="Post 7"></div>
+      <div class="col-4"><img src="https://picsum.photos/300?random=8" alt="Post 8"></div>
+      <div class="col-4"><img src="https://picsum.photos/300?random=9" alt="Post 9"></div>
+    </div>
+  </div>
+
+  <!-- Lista de posts vertical -->
+  <div class="container my-4" id="list-section" style="display:none;">
+
+    <!-- Post 1 -->
+    <div class="card mb-3">
+      <div class="d-flex justify-content-between align-items-center p-2">
+        <h5 class="card-title mb-0">Usuario 1</h5>
+        <small class="text-muted">04/09</small>
+      </div>
+      <img src="https://picsum.photos/500?random=10" class="card-img-top" alt="Post 10">
+      <div class="card-body">
+        <p class="mb-1"><strong>120 likes</strong></p>
+        <p class="card-text"><span class="fw-bold">Usuario 1</span> Este es el caption del post...</p>
+      </div>
+    </div>
+
+    <!-- Post 2 -->
+    <div class="card mb-3">
+      <div class="d-flex justify-content-between align-items-center p-2">
+        <h5 class="card-title mb-0">Usuario 2</h5>
+        <small class="text-muted">02/05</small>
+      </div>
+      <img src="https://picsum.photos/500?random=11" class="card-img-top" alt="Post 11">
+      <div class="card-body">
+        <p class="mb-1"><strong>90 likes</strong></p>
+        <p class="card-text"><span class="fw-bold">Usuario 2</span> Otro caption interesante...</p>
+      </div>
+    </div>
+
+    <!-- Post 3 -->
+    <div class="card mb-3">
+      <div class="d-flex justify-content-between align-items-center p-2">
+        <h5 class="card-title mb-0">Usuario 3</h5>
+        <small class="text-muted">1/3</small>
+      </div>
+      <img src="https://picsum.photos/500?random=12" class="card-img-top" alt="Post 12">
+      <div class="card-body">
+        <p class="mb-1"><strong>200 likes</strong></p>
+        <p class="card-text"><span class="fw-bold">Usuario 3</span> Caption largo para el tercer post...</p>
+      </div>
+    </div>
+
+  </div>
+
+ <!-- Modal Crear Post -->
+  <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-3">
+
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="modal-title" id="createPostModalLabel">Create new post</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body">
+          <label for="postCaption" class="form-label fw-bold">Caption</label>
+          <textarea class="form-control mb-3" id="postCaption" placeholder="Write a caption..." rows="3"></textarea>
+
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <!-- Cámara -->
+            <label for="postImage" class="mb-0" style="cursor:pointer;">
+              <i class="bi bi-camera" style="font-size: 1.8rem; color: gray;"></i>
+            </label>
+            <input type="file" id="postImage" style="display:none;">
+
+            <!-- Ubicación -->
+            <i id="locationIcon" class="bi bi-geo-alt" style="font-size: 1.8rem; color: gray; cursor:pointer;"></i>
+          </div>
+
+        <!-- Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success">Publish</button>
+        </div>
+
+
+      
+    </div>
+  </div>
+</div>
+
+  
+
+  <!-- JS para alternar secciones -->
+  <script>
+    const gridBtn = document.getElementById('grid-btn');
+    const listBtn = document.getElementById('list-btn');
+    const gridSection = document.getElementById('grid-section');
+    const listSection = document.getElementById('list-section');
+
+    gridBtn.addEventListener('click', () => {
+      gridSection.style.display = 'block';
+      listSection.style.display = 'none';
+    });
+
+    listBtn.addEventListener('click', () => {
+      gridSection.style.display = 'none';
+      listSection.style.display = 'block';
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
